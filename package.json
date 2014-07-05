@@ -1,0 +1,40 @@
+{
+  "name": "aureooms-nlp",
+  "description": "natural language processing algorithm templates for JavaScript",
+  "main": "js/dist/nlp.js",
+  "dependencies": {},
+  "devDependencies": {
+    "coveralls": "^2.10.0",
+    "optimist": "^0.6.1",
+    "uglify-js": "^2.4.13",
+    "recquire": "^0.1.0",
+    "recbuild": "^0.0.3",
+    "codeclimate-test-reporter": "0.0.3",
+    "qunit": "^0.6.3",
+    "istanbul": "^0.2.11"
+  },
+  "scripts": {
+    "build": "node js/build.js",
+    "test": "node test/js/run.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aureooms/nlp.git"
+  },
+  "keywords": [
+    "js",
+    "javascript",
+    "algorithm",
+    "complexity",
+    "natural",
+    "language",
+    "processing",
+    "nlp"
+  ],
+  "author": "Ooms Aurélien <aurelien.ooms@gmail.com> (http://aureooms.wolkom.net/)",
+  "license": "GPL v2",
+  "bugs": {
+    "url": "https://github.com/aureooms/nlp/issues"
+  },
+  "homepage": "https://aureooms.github.io/nlp"
+}
