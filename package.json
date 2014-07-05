@@ -1,5 +1,6 @@
 {
   "name": "aureooms-nlp",
+  "version": "0.0.0",
   "description": "natural language processing algorithm templates for JavaScript",
   "main": "js/dist/nlp.js",
   "dependencies": {},
@@ -36,6 +37,5 @@
   "bugs": {
     "url": "https://github.com/aureooms/nlp/issues"
   },
-  "homepage": "https://aureooms.github.io/nlp",
-  "version": "0.0.0"
+  "homepage": "https://aureooms.github.io/nlp"
 }
