@@ -36,5 +36,6 @@
   "bugs": {
     "url": "https://github.com/aureooms/nlp/issues"
   },
-  "homepage": "https://aureooms.github.io/nlp"
+  "homepage": "https://aureooms.github.io/nlp",
+  "version": "0.0.0"
 }
