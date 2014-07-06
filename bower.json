@@ -1,6 +1,6 @@
 {
   "name": "aureooms-nlp",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description" : "natural language processing algorithm templates for JavaScript",
   "homepage": "https://github.com/aureooms/nlp",
   "license": "GPL v2"
