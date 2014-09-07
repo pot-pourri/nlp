@@ -1,10 +1,10 @@
-(function(exports){
+(function(exports, undefined){
 
 	'use strict';
 
 
-/* /home/genius/dev/nlp/js/src/dist */
-/* /home/genius/dev/nlp/js/src/dist/btedist.js */
+/* js/src/dist */
+/* js/src/dist/btedist.js */
 
 
 
@@ -62,7 +62,7 @@ var btedist_t = function(kx, ky, kz) {
 
 
 exports.btedist_t = btedist_t;
-/* /home/genius/dev/nlp/js/src/dist/edist.js */
+/* js/src/dist/edist.js */
 
 
 var edist_t = function(kx, ky, kz) {

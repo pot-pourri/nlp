@@ -1,5 +1,10 @@
-var recquire_t = require('recquire');
+var pkg = require('aureooms-node-package');
 
-var recquire = recquire_t('nlp-test', 'index.js', false, false);
 
-recquire(__dirname + '/src/', module.exports, 0);
+var opt = {
+	src     : __dirname + '/src/',
+	exports : module.exports,
+	base    : 0
+};
+
+pkg.include(opt);
