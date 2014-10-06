@@ -1,0 +1,80 @@
+<!DOCTYPE html><html lang="en"><head><title>matching/rabinkarp</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../"><meta name="groc-document-path" content="matching/rabinkarp"><meta name="groc-project-path" content="js/src/matching/rabinkarp.js"><meta name="groc-github-url" content="https://github.com/aureooms/js-nlp"><link rel="stylesheet" type="text/css" media="all" href="../assets/style.css"><script type="text/javascript" src="../assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/aureooms/js-nlp/blob/master/js/src/matching/rabinkarp.js">js/src/matching/rabinkarp.js</a></div></div><div id="document"><div class="segment"></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>Parameters:</p>
+<ul>
+<li><p><strong>d must be an int.</strong><br/>(|∑|)</p>
+</li>
+<li><p><strong>q must be an int.</strong><br/>(is the prime number to use to lessen spurious hits)</p>
+</li>
+</ul></div></div><div class="code"><div class="wrapper"><span class="hljs-keyword">var</span> __rabinkarp__ = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(code, d, q)</span> {</span>
+
+	<span class="hljs-keyword">var</span> rkmatch = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(sh, ph, m, s, si, p, pi)</span> {</span>
+
+		<span class="hljs-keyword">var</span> j;
+
+		<span class="hljs-keyword">if</span> (sh === ph) {
+			<span class="hljs-keyword">for</span> (j = <span class="hljs-number">0</span>; j &lt; m; ++j) {
+				<span class="hljs-keyword">if</span> (s[si + j] !== p[pi + j]) {
+					<span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+				}
+			}
+			<span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+		}
+		<span class="hljs-keyword">else</span> {
+			<span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+		}
+	};
+
+	<span class="hljs-keyword">var</span> rabinkarp = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(s, si, sj, p, pi, pj, cb)</span> {</span>
+
+		<span class="hljs-keyword">var</span> n, m, i, sh, ph, of;
+
+		n = sj - si;
+		m = pj - pi;
+
+		<span class="hljs-keyword">if</span> (n &lt; m) {
+			<span class="hljs-keyword">return</span>;
+		}
+
+		sh = code(s[si]);
+		ph = code(p[pi]);
+		of = <span class="hljs-number">1</span>;
+
+		<span class="hljs-keyword">for</span> (i = <span class="hljs-number">1</span>; i &lt; m; ++i) {
+			sh *= d;
+			sh %= q;
+			sh += code(s[si + i]) % q;
+			sh %= q;
+			ph *= d;
+			ph %= q;
+			ph += code(p[pi + i]) % q;
+			ph %= q;
+			of *= d;
+			of %= q;
+		}
+
+
+		<span class="hljs-keyword">for</span> (i = si; i &lt; sj - m; ++i) {
+
+			<span class="hljs-keyword">if</span> (rkmatch(sh, ph, m, s, i, p, pi)) {
+				cb(s, i, i + m);
+			}
+
+			sh -= ((code(s[i]) % q) * of) % q;
+			sh *= d;
+			sh %= q;
+			sh += code(s[i + m]) % q;
+			sh %= q;
+		}
+
+
+		<span class="hljs-keyword">if</span> (rkmatch(sh, ph, m, s, i, p, pi)) {
+			cb(s, i, i + m);
+		}
+
+
+	};
+
+	<span class="hljs-keyword">return</span> rabinkarp;
+
+};
+
+exports.__rabinkarp__ = __rabinkarp__;</div></div></div></div></body></html>
