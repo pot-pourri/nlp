@@ -44,11 +44,11 @@ var __rabinkarp__ = function (code, d, q) {
 		for (i = 1; i < m; ++i) {
 			sh *= d;
 			sh %= q;
-			sh += code(s[si + i]);
+			sh += code(s[si + i]) % q;
 			sh %= q;
 			ph *= d;
 			ph %= q;
-			ph += code(p[pi + i]);
+			ph += code(p[pi + i]) % q;
 			ph %= q;
 			of *= d;
 			of %= q;
@@ -61,10 +61,10 @@ var __rabinkarp__ = function (code, d, q) {
 				cb(s, i, i + m);
 			}
 
-			sh -= (code(s[i]) * of) % q;
+			sh -= ((code(s[i]) % q) * of) % q;
 			sh *= d;
 			sh %= q;
-			sh += code(s[i + m]);
+			sh += code(s[i + m]) % q;
 			sh %= q;
 		}
 
