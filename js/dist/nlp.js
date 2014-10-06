@@ -164,8 +164,8 @@ var __rabinkarp__ = function (code, d, q) {
 			return;
 		}
 
-		sh = code(s[si]);
-		ph = code(p[pi]);
+		sh = code(s[si]) % q;
+		ph = code(p[pi]) % q;
 		of = 1;
 
 		for (i = 1; i < m; ++i) {
