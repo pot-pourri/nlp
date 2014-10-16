@@ -3,8 +3,8 @@
 	'use strict';
 
 
-/* js/src/dist */
-/* js/src/dist/btedist.js */
+/* js/src/distance */
+/* js/src/distance/btedist.js */
 
 
 
@@ -62,7 +62,7 @@ var btedist_t = function(kx, ky, kz) {
 
 
 exports.btedist_t = btedist_t;
-/* js/src/dist/edist.js */
+/* js/src/distance/edist.js */
 
 
 var edist_t = function(kx, ky, kz) {
@@ -208,5 +208,33 @@ var __rabinkarp__ = function (code, d, q) {
 };
 
 exports.__rabinkarp__ = __rabinkarp__;
+
+/* js/src/ngrams */
+/* js/src/ngrams/ngrams.js */
+
+
+var ngrams = function ( n, tokens, out ) {
+
+	var i, j, len, gram;
+
+	len = tokens.length - n;
+
+	for ( i = 0 ; i < len ; ++i ) {
+
+		gram = [];
+
+		for ( j = 0 ; j < n ; ++j ) {
+			gram.push( tokens[i + j] );
+		}
+
+		out.push( gram );
+
+	}
+
+	return out;
+
+};
+
+exports.ngrams = ngrams;
 
 })(typeof exports === 'undefined' ? this['nlp'] = {} : exports);
