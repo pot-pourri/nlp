@@ -1,34 +1,34 @@
-<!DOCTYPE html><html lang="en"><head><title>dist/edist</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../"><meta name="groc-document-path" content="dist/edist"><meta name="groc-project-path" content="js/src/dist/edist.js"><meta name="groc-github-url" content="https://github.com/aureooms/js-nlp"><link rel="stylesheet" type="text/css" media="all" href="../assets/style.css"><script type="text/javascript" src="../assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/aureooms/js-nlp/blob/master/js/src/dist/edist.js">js/src/dist/edist.js</a></div></div><div id="document"><div class="segment"><div class="code"><div class="wrapper"><span class="hljs-keyword">var</span> edist_t = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(kx, ky, kz)</span> {</span>
+<!DOCTYPE html><html lang="en"><head><title>dist/edist</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../"><meta name="groc-document-path" content="dist/edist"><meta name="groc-project-path" content="js/src/dist/edist.js"><meta name="groc-github-url" content="https://github.com/aureooms/js-nlp"><link rel="stylesheet" type="text/css" media="all" href="../assets/style.css"><script type="text/javascript" src="../assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/aureooms/js-nlp/blob/master/js/src/dist/edist.js">js/src/dist/edist.js</a></div></div><div id="document"><div class="segment"><div class="code"><div class="wrapper"><span class="kd">var</span> <span class="nx">edist_t</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">kx</span><span class="p">,</span> <span class="nx">ky</span><span class="p">,</span> <span class="nx">kz</span><span class="p">)</span> <span class="p">{</span>
 
-	<span class="hljs-keyword">var</span> edist = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(a, ai, aj, b, bi, bj, d, di, dj)</span>{</span>
-		<span class="hljs-keyword">var</span> i, j, m, n, x, y, z;
+  <span class="kd">var</span> <span class="nx">edist</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">ai</span><span class="p">,</span> <span class="nx">aj</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">bi</span><span class="p">,</span> <span class="nx">bj</span><span class="p">,</span> <span class="nx">d</span><span class="p">,</span> <span class="nx">di</span><span class="p">,</span> <span class="nx">dj</span><span class="p">){</span>
+    <span class="kd">var</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">j</span><span class="p">,</span> <span class="nx">m</span><span class="p">,</span> <span class="nx">n</span><span class="p">,</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">z</span><span class="p">;</span>
 
-		m = aj - ai;
-		n = bj - bi;
+    <span class="nx">m</span> <span class="o">=</span> <span class="nx">aj</span> <span class="o">-</span> <span class="nx">ai</span><span class="p">;</span>
+    <span class="nx">n</span> <span class="o">=</span> <span class="nx">bj</span> <span class="o">-</span> <span class="nx">bi</span><span class="p">;</span>
 
-		d[di][dj] = <span class="hljs-number">0</span>;
+    <span class="nx">d</span><span class="p">[</span><span class="nx">di</span><span class="p">][</span><span class="nx">dj</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
-		<span class="hljs-keyword">for</span> (i = <span class="hljs-number">1</span>; i &lt;= m; ++i) d[di + i][<span class="hljs-number">0</span>] = i;
-		<span class="hljs-keyword">for</span> (j = <span class="hljs-number">1</span>; j &lt;= n; ++j) d[<span class="hljs-number">0</span>][dj + j] = j;
-
-
-		<span class="hljs-keyword">for</span> (i = <span class="hljs-number">1</span>; i &lt;= m; ++i) {
-			<span class="hljs-keyword">for</span> (j = <span class="hljs-number">1</span>; j &lt;= n; ++j) {
-				
-				x = d[di + i - <span class="hljs-number">1</span>][dj + j] + kx;
-				y = d[di + i][dj + j - <span class="hljs-number">1</span>] + ky;
-				z = d[di + i - <span class="hljs-number">1</span>][dj + j - <span class="hljs-number">1</span>] + (a[ai + i - <span class="hljs-number">1</span>] !== b[bi + j - <span class="hljs-number">1</span>]) * kz;
-
-		 		d[di + i][dj + j] = <span class="hljs-built_in">Math</span>.min(x, y, z);
-			}
-		}
+    <span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="nx">m</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="nx">d</span><span class="p">[</span><span class="nx">di</span> <span class="o">+</span> <span class="nx">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="nx">i</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="nx">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;=</span> <span class="nx">n</span><span class="p">;</span> <span class="o">++</span><span class="nx">j</span><span class="p">)</span> <span class="nx">d</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="nx">dj</span> <span class="o">+</span> <span class="nx">j</span><span class="p">]</span> <span class="o">=</span> <span class="nx">j</span><span class="p">;</span>
 
 
-	};
+    <span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="nx">m</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">for</span> <span class="p">(</span><span class="nx">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;=</span> <span class="nx">n</span><span class="p">;</span> <span class="o">++</span><span class="nx">j</span><span class="p">)</span> <span class="p">{</span>
+        
+        <span class="nx">x</span> <span class="o">=</span> <span class="nx">d</span><span class="p">[</span><span class="nx">di</span> <span class="o">+</span> <span class="nx">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="nx">dj</span> <span class="o">+</span> <span class="nx">j</span><span class="p">]</span> <span class="o">+</span> <span class="nx">kx</span><span class="p">;</span>
+        <span class="nx">y</span> <span class="o">=</span> <span class="nx">d</span><span class="p">[</span><span class="nx">di</span> <span class="o">+</span> <span class="nx">i</span><span class="p">][</span><span class="nx">dj</span> <span class="o">+</span> <span class="nx">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="nx">ky</span><span class="p">;</span>
+        <span class="nx">z</span> <span class="o">=</span> <span class="nx">d</span><span class="p">[</span><span class="nx">di</span> <span class="o">+</span> <span class="nx">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="nx">dj</span> <span class="o">+</span> <span class="nx">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="nx">a</span><span class="p">[</span><span class="nx">ai</span> <span class="o">+</span> <span class="nx">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">!==</span> <span class="nx">b</span><span class="p">[</span><span class="nx">bi</span> <span class="o">+</span> <span class="nx">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span> <span class="o">*</span> <span class="nx">kz</span><span class="p">;</span>
 
-	<span class="hljs-keyword">return</span> edist;
+        <span class="nx">d</span><span class="p">[</span><span class="nx">di</span> <span class="o">+</span> <span class="nx">i</span><span class="p">][</span><span class="nx">dj</span> <span class="o">+</span> <span class="nx">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">z</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
 
-};
+
+  <span class="p">};</span>
+
+  <span class="k">return</span> <span class="nx">edist</span><span class="p">;</span>
+
+<span class="p">};</span>
 
 
-exports.edist_t = edist_t;</div></div></div></div></body></html>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">edist_t</span> <span class="o">=</span> <span class="nx">edist_t</span><span class="p">;</span></div></div></div></div></body></html>

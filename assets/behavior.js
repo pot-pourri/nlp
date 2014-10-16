@@ -24,8 +24,8 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
     }, {
       "type": "folder",
       "data": {
-        "path": "dist",
-        "title": "dist"
+        "path": "distance",
+        "title": "distance"
       },
       "depth": 1,
       "children": [
@@ -41,10 +41,10 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "JavaScript"
             },
-            "sourcePath": "/home/genius/dev/js/js-nlp/js/src/dist/btedist.js",
-            "projectPath": "js/src/dist/btedist.js",
-            "targetPath": "dist/btedist",
-            "pageTitle": "dist/btedist",
+            "sourcePath": "/home/genius/dev/js/js-nlp/js/src/distance/btedist.js",
+            "projectPath": "js/src/distance/btedist.js",
+            "targetPath": "distance/btedist",
+            "pageTitle": "distance/btedist",
             "title": "btedist"
           },
           "depth": 2,
@@ -61,10 +61,10 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "JavaScript"
             },
-            "sourcePath": "/home/genius/dev/js/js-nlp/js/src/dist/edist.js",
-            "projectPath": "js/src/dist/edist.js",
-            "targetPath": "dist/edist",
-            "pageTitle": "dist/edist",
+            "sourcePath": "/home/genius/dev/js/js-nlp/js/src/distance/edist.js",
+            "projectPath": "js/src/distance/edist.js",
+            "targetPath": "distance/edist",
+            "pageTitle": "distance/edist",
             "title": "edist"
           },
           "depth": 2,
@@ -116,6 +116,36 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "targetPath": "matching/rabinkarp",
             "pageTitle": "matching/rabinkarp",
             "title": "rabinkarp"
+          },
+          "depth": 2,
+          "outline": []
+        }
+      ]
+    }, {
+      "type": "folder",
+      "data": {
+        "path": "ngrams",
+        "title": "ngrams"
+      },
+      "depth": 1,
+      "children": [
+        {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [".js"],
+              "pygmentsLexer": "javascript",
+              "multiLineComment": ["/*", "*", "*/"],
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "JavaScript"
+            },
+            "sourcePath": "/home/genius/dev/js/js-nlp/js/src/ngrams/ngrams.js",
+            "projectPath": "js/src/ngrams/ngrams.js",
+            "targetPath": "ngrams/ngrams",
+            "pageTitle": "ngrams/ngrams",
+            "title": "ngrams"
           },
           "depth": 2,
           "outline": []
