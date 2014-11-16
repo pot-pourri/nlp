@@ -25,7 +25,7 @@ var natural = function ( a, b ) {
 
 		while ( a[ai] < '0' || a[ai] > '9' || b[bi] < '0' || b[bi] > '9' ) {
 
-			d = a[ai] === b[bi] ? 0 : a[ai] < b[bi] ? 1 : -1;
+			d = a[ai] === b[bi] ? 0 : a[ai] < b[bi] ? -1 : 1;
 
 			if ( d !== 0 ) {
 				return d;
@@ -43,11 +43,11 @@ var natural = function ( a, b ) {
 		ak = ai;
 		bk = bi;
 
-		while ( a[ak] === '0' && ak < an ) {
+		while ( ak < an && a[ak] === '0' ) {
 			++ak;
 		}
 
-		while ( b[bk] === '0' && bk < bn ) {
+		while ( bk < bn && b[bk] === '0' ) {
 			++bk;
 		}
 
@@ -94,7 +94,7 @@ var natural = function ( a, b ) {
 
 					for ( ; ak < aj ; ++ak, ++bk ) {
 
-						d = a[ak] === b[bk] ? 0 : a[ak] < b[bk] ? 1 : -1;
+						d = a[ak] === b[bk] ? 0 : a[ak] < b[bk] ? -1 : 1;
 
 						if ( d !== 0 ) {
 							return d;
@@ -102,10 +102,14 @@ var natural = function ( a, b ) {
 
 					}
 
+					// prefixing numbers are equal
+					// just continue the comparison by reading
+					// the end of the strings
+
 					ai = aj;
 					bi = bj;
 
-					continue;
+					continue main;
 
 				}
 
