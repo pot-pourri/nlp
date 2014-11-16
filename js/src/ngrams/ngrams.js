@@ -4,7 +4,7 @@ var ngrams = function ( n, tokens, out ) {
 
 	var i, j, len, gram;
 
-	len = tokens.length - n;
+	len = tokens.length - n + 1;
 
 	for ( i = 0 ; i < len ; ++i ) {
 
