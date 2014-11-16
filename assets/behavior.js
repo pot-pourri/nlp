@@ -13,7 +13,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
           "commentsOnly": true,
           "name": "Markdown"
         },
-        "sourcePath": "/home/genius/dev/js/js-nlp/README.md",
+        "sourcePath": "/home/aureooms/dev/js/js-nlp/README.md",
         "projectPath": "README.md",
         "targetPath": "index",
         "pageTitle": "index",
@@ -21,6 +21,36 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
       },
       "depth": 1,
       "outline": []
+    }, {
+      "type": "folder",
+      "data": {
+        "path": "compare",
+        "title": "compare"
+      },
+      "depth": 1,
+      "children": [
+        {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [".js"],
+              "pygmentsLexer": "javascript",
+              "multiLineComment": ["/*", "*", "*/"],
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "JavaScript"
+            },
+            "sourcePath": "/home/aureooms/dev/js/js-nlp/js/src/compare/natural.js",
+            "projectPath": "js/src/compare/natural.js",
+            "targetPath": "compare/natural",
+            "pageTitle": "compare/natural",
+            "title": "natural"
+          },
+          "depth": 2,
+          "outline": []
+        }
+      ]
     }, {
       "type": "folder",
       "data": {
@@ -41,7 +71,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "JavaScript"
             },
-            "sourcePath": "/home/genius/dev/js/js-nlp/js/src/distance/btedist.js",
+            "sourcePath": "/home/aureooms/dev/js/js-nlp/js/src/distance/btedist.js",
             "projectPath": "js/src/distance/btedist.js",
             "targetPath": "distance/btedist",
             "pageTitle": "distance/btedist",
@@ -61,7 +91,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "JavaScript"
             },
-            "sourcePath": "/home/genius/dev/js/js-nlp/js/src/distance/edist.js",
+            "sourcePath": "/home/aureooms/dev/js/js-nlp/js/src/distance/edist.js",
             "projectPath": "js/src/distance/edist.js",
             "targetPath": "distance/edist",
             "pageTitle": "distance/edist",
@@ -91,7 +121,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "JavaScript"
             },
-            "sourcePath": "/home/genius/dev/js/js-nlp/js/src/matching/find.js",
+            "sourcePath": "/home/aureooms/dev/js/js-nlp/js/src/matching/find.js",
             "projectPath": "js/src/matching/find.js",
             "targetPath": "matching/find",
             "pageTitle": "matching/find",
@@ -111,7 +141,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "JavaScript"
             },
-            "sourcePath": "/home/genius/dev/js/js-nlp/js/src/matching/rabinkarp.js",
+            "sourcePath": "/home/aureooms/dev/js/js-nlp/js/src/matching/rabinkarp.js",
             "projectPath": "js/src/matching/rabinkarp.js",
             "targetPath": "matching/rabinkarp",
             "pageTitle": "matching/rabinkarp",
@@ -141,7 +171,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "JavaScript"
             },
-            "sourcePath": "/home/genius/dev/js/js-nlp/js/src/ngrams/ngrams.js",
+            "sourcePath": "/home/aureooms/dev/js/js-nlp/js/src/ngrams/ngrams.js",
             "projectPath": "js/src/ngrams/ngrams.js",
             "targetPath": "ngrams/ngrams",
             "pageTitle": "ngrams/ngrams",

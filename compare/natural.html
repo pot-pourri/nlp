@@ -1,0 +1,101 @@
+<!DOCTYPE html><html lang="en"><head><title>compare/natural</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../"><meta name="groc-document-path" content="compare/natural"><meta name="groc-project-path" content="js/src/compare/natural.js"><meta name="groc-github-url" content="https://github.com/aureooms/js-nlp"><link rel="stylesheet" type="text/css" media="all" href="../assets/style.css"><script type="text/javascript" src="../assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/aureooms/js-nlp/blob/master/js/src/compare/natural.js">js/src/compare/natural.js</a></div></div><div id="document"><div class="segment"></div><div class="segment"><div class="comments "><div class="wrapper"><p>/!\ This will shuffle when for example</p>
+<p>a = &quot;sjfdksj 0123 fdjsh 00123&quot;;
+b = &quot;sjfdksj 00123 fdjsh 0123&quot;;</p>
+<p>since both strings have the same length and numbers inside
+the string are equivalent.</p></div></div><div class="code"><div class="wrapper"><span class="hljs-keyword">var</span> natural = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">( a, b )</span> {</span>
+
+	<span class="hljs-keyword">var</span> i, j, k, d, ai, bi, ak, bk, aj, bj, an, bn;
+
+	an = a.length;
+	bn = b.length;
+
+	ai = <span class="hljs-number">0</span>;
+	bi = <span class="hljs-number">0</span>;
+
+	main : <span class="hljs-keyword">while</span> ( ai &lt; an &amp;&amp; bi &lt; bn ) {
+
+		<span class="hljs-keyword">while</span> ( a[ai] &lt; <span class="hljs-string">'0'</span> || a[ai] &gt; <span class="hljs-string">'9'</span> || b[bi] &lt; <span class="hljs-string">'0'</span> || b[bi] &gt; <span class="hljs-string">'9'</span> ) {
+
+			d = a[ai] === b[bi] ? <span class="hljs-number">0</span> : a[ai] &lt; b[bi] ? -<span class="hljs-number">1</span> : <span class="hljs-number">1</span>;
+
+			<span class="hljs-keyword">if</span> ( d !== <span class="hljs-number">0</span> ) {
+				<span class="hljs-keyword">return</span> d;
+			}
+
+			++ai;
+			++bi;
+
+			<span class="hljs-keyword">if</span> ( ai === an || bi === bn ) {
+				<span class="hljs-keyword">break</span> main;
+			}
+
+		}
+
+		ak = ai;
+		bk = bi;
+
+		<span class="hljs-keyword">while</span> ( ak &lt; an &amp;&amp; a[ak] === <span class="hljs-string">'0'</span> ) {
+			++ak;
+		}
+
+		<span class="hljs-keyword">while</span> ( bk &lt; bn &amp;&amp; b[bk] === <span class="hljs-string">'0'</span> ) {
+			++bk;
+		}
+
+		<span class="hljs-keyword">if</span> ( ak === an || a[ak] &lt; <span class="hljs-string">'0'</span> || a[ak] &gt; <span class="hljs-string">'9'</span> ) {</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>a[ai:ak] is &quot;0..0&quot;</p></div></div><div class="code"><div class="wrapper">			<span class="hljs-keyword">if</span> ( bk === bn || b[bk] &lt; <span class="hljs-string">'0'</span> || b[bk] &gt; <span class="hljs-string">'9'</span> ) {</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>b[bi:bk] is &quot;0..0&quot;</p></div></div><div class="code"><div class="wrapper">				ai = ak;
+				bi = bk;
+				<span class="hljs-keyword">continue</span>;
+			}
+
+			<span class="hljs-keyword">else</span> {</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>a[ak:] is empty while b[bk:] is not</p></div></div><div class="code"><div class="wrapper">				<span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;
+			}
+
+		}
+
+		<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ( bk === bn || b[bk] &lt; <span class="hljs-string">'0'</span> || b[bk] &gt; <span class="hljs-string">'9'</span> ) {</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>b[bk:] is empty while a[ak:] is not</p></div></div><div class="code"><div class="wrapper">			<span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+		}</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>a[ak:] starts with some number without leading zeroes
+b[bk:] starts with some number without leading zeroes</p></div></div><div class="code"><div class="wrapper">		aj = ak;
+		bj = bk;
+
+		<span class="hljs-keyword">while</span> ( <span class="hljs-literal">true</span> ) {
+
+			++aj;
+			++bj;
+
+			<span class="hljs-keyword">if</span> ( aj === an || a[aj] &lt; <span class="hljs-string">'0'</span> || a[aj] &gt; <span class="hljs-string">'9'</span> ) {
+
+				<span class="hljs-keyword">if</span> ( bj === bn || b[bj] &lt; <span class="hljs-string">'0'</span> || b[bj] &gt; <span class="hljs-string">'9'</span> ) {</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>the prefixing numbers in a[ak:] and b[bk:] have same length
+just compare them</p></div></div><div class="code"><div class="wrapper">					<span class="hljs-keyword">for</span> ( ; ak &lt; aj ; ++ak, ++bk ) {
+
+						d = a[ak] === b[bk] ? <span class="hljs-number">0</span> : a[ak] &lt; b[bk] ? -<span class="hljs-number">1</span> : <span class="hljs-number">1</span>;
+
+						<span class="hljs-keyword">if</span> ( d !== <span class="hljs-number">0</span> ) {
+							<span class="hljs-keyword">return</span> d;
+						}
+
+					}</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>prefixing numbers are equal
+just continue the comparison by reading
+the end of the strings</p></div></div><div class="code"><div class="wrapper">					ai = aj;
+					bi = bj;
+
+					<span class="hljs-keyword">continue</span> main;
+
+				}
+
+				<span class="hljs-keyword">else</span> {</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>b[bk:] is prefixed with a larger number</p></div></div><div class="code"><div class="wrapper">					<span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;
+				}
+
+			}
+
+			<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ( bj === bn || b[bj] &lt; <span class="hljs-string">'0'</span> || b[bj] &gt; <span class="hljs-string">'9'</span> ) {</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>a[ak:] is prefixed with a larger number</p></div></div><div class="code"><div class="wrapper">				<span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+			}
+
+		}
+
+	}
+
+	<span class="hljs-keyword">return</span> an - bn;
+
+};
+
+exports.natural = natural;</div></div></div></div></body></html>
