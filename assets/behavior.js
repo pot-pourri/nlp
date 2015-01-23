@@ -181,6 +181,36 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
           "outline": []
         }
       ]
+    }, {
+      "type": "folder",
+      "data": {
+        "path": "stemming",
+        "title": "stemming"
+      },
+      "depth": 1,
+      "children": [
+        {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [".js"],
+              "pygmentsLexer": "javascript",
+              "multiLineComment": ["/*", "*", "*/"],
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "JavaScript"
+            },
+            "sourcePath": "/home/aureooms/dev/js/js-nlp/js/src/stemming/porter.js",
+            "projectPath": "js/src/stemming/porter.js",
+            "targetPath": "stemming/porter",
+            "pageTitle": "stemming/porter",
+            "title": "porter"
+          },
+          "depth": 2,
+          "outline": []
+        }
+      ]
     }
   ];
 
