@@ -1,7 +1,7 @@
 {
 	"name": "aureooms-js-nlp",
 	"description": "natural language processing code bricks for JavaScript",
-	"version": "0.3.0",
+	"version": "0.3.1",
 	"main": "js/dist/nlp.js",
 	"dependencies": {},
 	"devDependencies": {
