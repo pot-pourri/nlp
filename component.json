@@ -1,0 +1,11 @@
+{
+	"description": "natural language processing code bricks for JavaScript",
+	"version": "0.3.0",
+	"repo": "aureooms/js-nlp",
+	"scripts": [
+		"js/dist/nlp.js"
+	],
+	"name": "aureooms-js-nlp",
+	"license": "AGPL-3.0",
+	"main": "js/dist/nlp.js"
+}
