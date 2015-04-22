@@ -17,14 +17,14 @@ below are from the original version in ANSI C.</p></div></div></div><div class="
 <p>   The algorithm as encoded here is particularly fast.</p>
 <p>   Release 1: was many years ago
    Release 2: 11 Apr 2013
-       fixes a bug noted by Matt Patenaude <a href="&#x6d;&#97;&#105;&#x6c;&#116;&#111;&#x3a;&#x6d;&#97;&#116;&#x74;&#x40;&#x6d;&#97;&#x74;&#x74;&#x70;&#x61;&#x74;&#x65;&#x6e;&#x61;&#x75;&#x64;&#101;&#46;&#99;&#111;&#109;">&#x6d;&#97;&#116;&#x74;&#x40;&#x6d;&#97;&#x74;&#x74;&#x70;&#x61;&#x74;&#x65;&#x6e;&#x61;&#x75;&#x64;&#101;&#46;&#99;&#111;&#109;</a>,</p>
+       fixes a bug noted by Matt Patenaude <a href="&#x6d;&#97;&#x69;&#108;&#x74;&#111;&#58;&#109;&#97;&#x74;&#116;&#x40;&#109;&#97;&#116;&#116;&#112;&#97;&#x74;&#101;&#110;&#x61;&#x75;&#100;&#x65;&#x2e;&#x63;&#x6f;&#x6d;">&#109;&#97;&#x74;&#116;&#x40;&#109;&#97;&#116;&#116;&#112;&#97;&#x74;&#101;&#110;&#x61;&#x75;&#100;&#x65;&#x2e;&#x63;&#x6f;&#x6d;</a>,</p>
 <pre><code>   case &#39;o&#39;: if (ends(&quot;\03&quot; &quot;ion&quot;) &amp;&amp; (b[j] == &#39;s&#39; || b[j] == &#39;t&#39;)) break;
        ==&gt;
    case &#39;o&#39;: if (ends(&quot;\03&quot; &quot;ion&quot;) &amp;&amp; j &gt;= k0 &amp;&amp; (b[j] == &#39;s&#39; || b[j] == &#39;t&#39;)) break;
 
    to avoid accessing b[k0-1] when the word in b is &quot;ion&quot;.</code></pre>
 <p>   Release 3: 25 Mar 2014
-       fixes a similar bug noted by Klemens Baum <a href="&#x6d;&#x61;&#x69;&#108;&#x74;&#x6f;&#x3a;&#x6b;&#108;&#101;&#x6d;&#101;&#x6e;&#x73;&#x62;&#x61;&#117;&#x6d;&#64;&#x67;&#x6d;&#x61;&#105;&#108;&#x2e;&#x63;&#x6f;&#x6d;">&#x6b;&#108;&#101;&#x6d;&#101;&#x6e;&#x73;&#x62;&#x61;&#117;&#x6d;&#64;&#x67;&#x6d;&#x61;&#105;&#108;&#x2e;&#x63;&#x6f;&#x6d;</a>,
+       fixes a similar bug noted by Klemens Baum <a href="&#109;&#97;&#x69;&#x6c;&#116;&#111;&#58;&#107;&#x6c;&#x65;&#x6d;&#101;&#110;&#115;&#98;&#97;&#x75;&#109;&#x40;&#103;&#109;&#97;&#105;&#108;&#x2e;&#x63;&#111;&#109;">&#107;&#x6c;&#x65;&#x6d;&#101;&#110;&#115;&#98;&#97;&#x75;&#109;&#x40;&#103;&#109;&#97;&#105;&#108;&#x2e;&#x63;&#111;&#109;</a>,
        that if step1ab leaves a one letter result (ied -&gt; i, aing -&gt; a etc),
        step2 and step4 access the byte before the first letter. So we skip
        steps after step1ab unless k &gt; k0.</p></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>The main part of the stemming algorithm starts here. b is a buffer
