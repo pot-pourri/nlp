@@ -1,19 +1,21 @@
 {
-	"name": "aureooms-js-nlp",
-	"version": "0.3.2",
-	"description": "natural language processing code bricks for JavaScript",
-	"homepage": "https://aureooms.github.io/js-nlp",
-	"license": "AGPL-3.0",
-	"main": "js/dist/nlp.js",
-	"ignore": [
-		"js/index.js",
-		"js/src",
-		"test",
-		"pkg.json",
-		"package.json",
-		".groc.json",
-		".travis.yml",
-		".gitignore",
-		"README.md"
-	]
+  "name": "aureooms-js-nlp",
+  "version": "0.3.2",
+  "description": "natural language processing code bricks for JavaScript",
+  "homepage": "https://aureooms.github.io/js-nlp",
+  "license": "AGPL-3.0",
+  "main": "js/dist/nlp.js",
+  "ignore": [
+    "js/index.js",
+    "js/src",
+    "test",
+    "pkg.json",
+    "package.json",
+    ".groc.json",
+    ".travis.yml",
+    ".gitignore",
+    "README.md",
+    "inch.json",
+    ".codeclimate.yml"
+  ]
 }
