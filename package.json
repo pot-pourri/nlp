@@ -5,7 +5,7 @@
 	"main": "js/dist/nlp.js",
 	"dependencies": {},
 	"devDependencies": {
-		"aureooms-node-package": "^1.2.0"
+		"aureooms-node-package": "^6.0.1"
 	},
 	"scripts": {
 		"build": "./node_modules/.bin/aureooms-node-package-build",
