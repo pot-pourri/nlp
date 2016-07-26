@@ -1,5 +1,5 @@
 {
-	"ns": "nlp",
+	"name": "nlp",
 	"code": {
 		"main": [
 			"js",
