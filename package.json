@@ -1,5 +1,5 @@
 {
-	"name": "aureooms-js-nlp",
+	"name": "@aureooms/js-nlp",
 	"description": "natural language processing code bricks for JavaScript",
 	"version": "0.3.2",
 	"main": "js/dist/nlp.js",
