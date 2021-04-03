@@ -135,5 +135,15 @@
         ]
       }
     }
+  },
+  "ava": {
+    "files": [
+      "test/src/**/*"
+    ],
+    "require": [
+      "regenerator-runtime/runtime",
+      "@babel/register"
+    ],
+    "timeout": "1m"
   }
 }
