@@ -36,7 +36,8 @@
     "lint": "true",
     "prepare": "npm run build",
     "cover": "c8 --all --src src --reporter=lcov npm test",
-    "dev": "npm run lint-config-and-fix && npm run lint-and-fix && npm run cover -- -- -st --fail-fast"
+    "dev": "npm run lint-config-and-fix && npm run lint-and-fix && npm run cover -- -- -st --fail-fast",
+    "travis": null
   },
   "repository": {
     "type": "git",
