@@ -34,7 +34,8 @@
     "test": "ava",
     "esdoc": null,
     "lint": "true",
-    "prepare": "npm run build"
+    "prepare": "npm run build",
+    "cover": "c8 --all --src src --reporter=lcov npm test"
   },
   "repository": {
     "type": "git",
