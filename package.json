@@ -2,7 +2,7 @@
   "name": "@aureooms/js-nlp",
   "description": "natural language processing code bricks for JavaScript",
   "version": "0.3.2",
-  "main": "js/dist/nlp.js",
+  "main": "dist/index.js",
   "dependencies": {},
   "devDependencies": {
     "aureooms-node-package": "^6.0.1",
@@ -30,7 +30,7 @@
     "power-assert": "1.6.1"
   },
   "scripts": {
-    "build": "./node_modules/.bin/aureooms-node-package-build",
+    "build": "NODE_ENV=production microbundle",
     "test": "ava",
     "esdoc": null,
     "lint": "true"
