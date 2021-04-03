@@ -154,5 +154,6 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "sideEffects": false
 }
