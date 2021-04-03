@@ -52,7 +52,7 @@
    should be done before stem(...) is called.
 */
 
-export function porter ( p , pi , pj ) {
+export const porter = ( p , pi , pj ) => {
 
 // buffer for word to be stemmed
 var b ;
@@ -64,7 +64,7 @@ var k , k0 , j ;
 /**
  * cons(i) is true <=> b[i] is a consonant.
  */
-export function cons ( i ) {
+const cons = ( i ) => {
 	switch ( b[i] ) {
 		case 'a' : case 'e' : case 'i' : case 'o' : case 'u' : return false ;
 		case 'y' : return ( i === k0 ) ? true : !cons( i - 1 ) ;
@@ -84,7 +84,7 @@ export function cons ( i ) {
  *     ....
  */
 
-export function m ( ) {
+const m = ( ) => {
 
 	var i , n ;
 
@@ -118,7 +118,7 @@ export function m ( ) {
 /**
  * vowelinstem() is true <=> k0,...j contains a vowel
  */
-export function vowelinstem ()
+const vowelinstem = () =>
 {  var i; for (i = k0; i <= j; i++) if (! cons(i)) return true;
    return false;
 }
@@ -126,7 +126,7 @@ export function vowelinstem ()
 /**
  * doublec(j) is true <=> j,(j-1) contain a double consonant.
  */
-export function doublec ( j ) {
+const doublec = ( j ) => {
 	if (j < k0+1) return false;
    if (b[j] != b[j-1]) return false;
    return cons(j);
@@ -141,7 +141,7 @@ export function doublec ( j ) {
  *     snow, box, tray.
  *
  */
-export function cvc ( i )
+const cvc = ( i ) =>
 {  if (i < k0+2 || !cons(i) || cons(i-1) || !cons(i-2)) return false;
    {  var ch = b[i];
       if (ch == 'w' || ch == 'x' || ch == 'y') return false;
@@ -152,7 +152,7 @@ export function cvc ( i )
 /**
  * memcmp in JavaScript
  */
-export function memcmp ( a , ai , aj , b , bi ) {
+const memcmp = ( a , ai , aj , b , bi ) => {
 
 	for ( ; ai < aj ; ++ai , ++bi ) {
 		if ( a[ai] === b[bi] ) continue ;
@@ -167,7 +167,7 @@ export function memcmp ( a , ai , aj , b , bi ) {
  * ends(s) is true <=> k0,...k ends with the string s.
  */
 
-export function ends ( s ) {
+const ends = ( s ) => {
 	var len = s.length ;
 	if ( s[len - 1] !== b[k] ) return false ; /* tiny speed-up */
 	if ( len > k - k0 + 1 ) return false ;
@@ -182,7 +182,7 @@ export function ends ( s ) {
  * that in our use case )
  */
 
-export function memmove ( a , ai , aj , b , bi ) {
+const memmove = ( a , ai , aj , b , bi ) => {
 
 	for ( ; ai < aj ; ++ai , ++bi ) {
 		b[bi] = a[ai] ;
@@ -194,7 +194,7 @@ export function memmove ( a , ai , aj , b , bi ) {
  * setto(s) sets (j+1),...k to the characters in the string s, readjusting k.
  */
 
-export function setto ( s ) {
+const setto = ( s ) => {
 	var len = s.length ;
 	memmove( s , 0 , len , b , j + 1 ) ;
 	k = j + len ;
@@ -204,7 +204,7 @@ export function setto ( s ) {
  * r(s) is used further down.
  */
 
-export function r ( s ) {
+const r = ( s ) => {
 	if ( m( ) > 0 ) setto( s ) ;
 }
 
@@ -231,7 +231,7 @@ export function r ( s ) {
  *
  */
 
-export function step1ab ( ) {
+const step1ab = ( ) => {
 	var ch ;
 	if (b[k] == 's')
 	{  if (ends( "sses")) k -= 2; else
@@ -259,7 +259,7 @@ export function step1ab ( ) {
  * step1c() turns terminal y to i when there is another vowel in the stem.
  */
 
-export function step1c ( ) {
+const step1c = ( ) => {
 	if (ends("y") && vowelinstem()) b[k] = 'i';
 }
 
@@ -270,7 +270,7 @@ export function step1c ( ) {
  * m() > 0.
  */
 
-export function step2 ( ) {
+const step2 = ( ) => {
 	switch (b[k-1]) {
 
 		case 'a': if (ends( "ational")) { r( "ate"); break; }
@@ -316,7 +316,7 @@ export function step2 ( ) {
  * step3() deals with -ic-, -full, -ness etc. similar strategy to step2.
  */
 
-export function step3 ( ) { switch (b[k])
+const step3 = ( ) => { switch (b[k])
 {
     case 'e': if (ends( "icate")) { r( "ic"); break; }
               if (ends( "ative")) { r( ""); break; }
@@ -335,7 +335,7 @@ export function step3 ( ) { switch (b[k])
  * step4() takes off -ant, -ence etc., in context <c>vcvc<v>.
  */
 
-export function step4 ()
+const step4 = () =>
 {  switch (b[k-1])
     {  case 'a': if (ends( "al")) break; return;
        case 'c': if (ends( "ance")) break;
@@ -366,7 +366,7 @@ export function step4 ()
  * step5() removes a final -e if m() > 1, and changes -ll to -l if m() > 1.
  */
 
-export function step5 ()
+const step5 = () =>
 {  j = k;
    if (b[k] == 'e')
    {  var a = m();
@@ -385,7 +385,7 @@ export function step5 ()
  * file.
  */
 
-export function stem ( p , i , j )
+const stem = ( p , i , j ) =>
 {  b = p; k = j; k0 = i; /* copy the parameters into statics */
    if (k <= k0+1) return k; /*-DEPARTURE-*/
 
