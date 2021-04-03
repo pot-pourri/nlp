@@ -61,8 +61,8 @@ test( 'btedist', t => {
 		[1, 1, 2]
 	];
 
-	for (var m = 0; m < MODEL.length; ++m)
-	for (var t = 0; t < TEST.length; ++t)
+	for (let m = 0; m < MODEL.length; ++m)
+	for (let t = 0; t < TEST.length; ++t)
 	check.apply(null, [MODEL[m]].concat(TEST[t]));
 
 });

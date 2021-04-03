@@ -6,7 +6,7 @@
 //
 // reference sets for the 1980 Porter Stemmer.
 
-exports.pairs = [
+export const pairs = [
 	["a", "a"],
 	["aaron", "aaron"],
 	["abaissiez", "abaissiez"],

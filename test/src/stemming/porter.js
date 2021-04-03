@@ -1,54 +1,41 @@
 import test from 'ava';
 import * as nlp from '../../../src';
 
-var t = function ( source , expected ) {
+import {pairs} from "../../data/stemming/porter/reference.js" ;
 
-	var p , pi , pj , oj , output ;
+const macro = ( t, source , expected ) => {
 
-	p = source.split( "" ) ;
-	pi = 0 ;
-	pj = p.length ;
+	const p = source.split( "" ) ;
+	const pi = 0 ;
+	const pj = p.length ;
 
-	oj = nlp.porter( p , pi , pj ) + 1 ;
+	const oj = nlp.porter( p , pi , pj ) + 1 ;
 
-	output = p.slice( pi , oj ).join( "" ) ;
+	const output = p.slice( pi , oj ).join( "" ) ;
 
 	t.deepEqual( output , expected , source ) ;
 
 } ;
 
-test( "Porter stemmer" , t => {
+macro.title = (title, source, expected) => title || `${source} ~ ${expected}`;
 
-	t( "ion"       , "ion" ) ;
+test(macro, "ion"       , "ion" ) ;
 
-	t( "ied"       , "i" ) ;
-	t( "aing"      , "a" ) ;
+test(macro, "ied"       , "i" ) ;
+test(macro, "aing"      , "a" ) ;
 
-	t( "caresses"  , "caress" ) ;
-	t( "ponies"    , "poni" ) ;
-	t( "ties"      , "ti" ) ;
-	t( "caress"    , "caress" ) ;
-	t( "cats"      , "cat" ) ;
+test(macro, "caresses"  , "caress" ) ;
+test(macro, "ponies"    , "poni" ) ;
+test(macro, "caress"    , "caress" ) ;
 
-	t( "feed"      , "feed" ) ;
-	t( "agreed"    , "agre" ) ;
-	t( "disabled"  , "disabl" ) ;
+test(macro, "matting"   , "mat" ) ;
+test(macro, "mating"    , "mate" ) ;
+test(macro, "milling"   , "mill" ) ;
+test(macro, "messing"   , "mess" ) ;
 
-	t( "matting"   , "mat" ) ;
-	t( "mating"    , "mate" ) ;
-	t( "meeting"   , "meet" ) ;
-	t( "milling"   , "mill" ) ;
-	t( "messing"   , "mess" ) ;
+test(macro, "journalism" , "journal" ) ;
 
-	t( "meetings"  , "meet" ) ;
+test(macro, "fossilization" , "fossil" ) ;
+test(macro, "civilization" , "civil" ) ;
 
-	t( "journalism" , "journal" ) ;
-
-	t( "fossilization" , "fossil" ) ;
-	t( "civilization" , "civil" ) ;
-
-import reference from "../../data/stemming/porter/reference.js" ;
-
-	reference.pairs.forEach( t.apply.bind( t , null ) ) ;
-
-} ) ;
+for (const [source, expected] of pairs) test(macro, source, expected);
