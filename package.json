@@ -2,63 +2,17 @@
   "name": "@aureooms/js-nlp",
   "description": "natural language processing code bricks for JavaScript",
   "version": "0.3.2",
-  "main": "dist/index.js",
-  "dependencies": {},
-  "devDependencies": {
-    "@babel/core": "7.13.14",
-    "@babel/preset-env": "7.13.12",
-    "@babel/register": "7.13.14",
-    "@commitlint/cli": "12.1.1",
-    "@js-library/commitlint-config": "0.0.4",
-    "ava": "3.15.0",
-    "babel-plugin-transform-remove-console": "6.9.4",
-    "babel-plugin-unassert": "3.0.1",
-    "babel-preset-power-assert": "3.0.0",
-    "c8": "7.7.0",
-    "coveralls": "3.1.0",
-    "esdoc": "1.1.0",
-    "esdoc-inject-script-plugin": "1.0.0",
-    "esdoc-inject-style-plugin": "1.0.0",
-    "esdoc-standard-plugin": "1.0.0",
-    "fixpack": "4.0.0",
-    "husky": "6.0.0",
-    "lint-staged": "10.5.4",
-    "microbundle": "0.13.0",
-    "np": "7.4.0",
-    "pinst": "2.1.6",
-    "power-assert": "1.6.1"
-  },
-  "scripts": {
-    "build": "NODE_ENV=production microbundle",
-    "test": "ava",
-    "esdoc": null,
-    "lint": "true",
-    "prepare": "npm run build",
-    "cover": "c8 --all --src src --reporter=lcov npm test",
-    "dev": "npm run lint-config-and-fix && npm run lint-and-fix && npm run cover -- -- -st --fail-fast",
-    "travis": null,
-    "release": "np --message ':hatching_chick: release: Bumping to v%s.'"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/aureooms/js-nlp.git"
-  },
-  "keywords": [
-    "js",
-    "javascript",
-    "algorithm",
-    "complexity",
-    "natural",
-    "language",
-    "processing",
-    "nlp"
-  ],
   "author": "aureooms",
-  "license": "AGPL-3.0",
-  "bugs": {
-    "url": "https://github.com/aureooms/js-nlp/issues"
+  "ava": {
+    "files": [
+      "test/src/**/*"
+    ],
+    "require": [
+      "regenerator-runtime/runtime",
+      "@babel/register"
+    ],
+    "timeout": "1m"
   },
-  "homepage": "https://aureooms.github.io/js-nlp",
   "babel": {
     "sourceMaps": true,
     "presets": [
@@ -141,18 +95,64 @@
       }
     }
   },
-  "ava": {
-    "files": [
-      "test/src/**/*"
-    ],
-    "require": [
-      "regenerator-runtime/runtime",
-      "@babel/register"
-    ],
-    "timeout": "1m"
+  "bugs": {
+    "url": "https://github.com/aureooms/js-nlp/issues"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "7.13.14",
+    "@babel/preset-env": "7.13.12",
+    "@babel/register": "7.13.14",
+    "@commitlint/cli": "12.1.1",
+    "@js-library/commitlint-config": "0.0.4",
+    "ava": "3.15.0",
+    "babel-plugin-transform-remove-console": "6.9.4",
+    "babel-plugin-unassert": "3.0.1",
+    "babel-preset-power-assert": "3.0.0",
+    "c8": "7.7.0",
+    "coveralls": "3.1.0",
+    "esdoc": "1.1.0",
+    "esdoc-inject-script-plugin": "1.0.0",
+    "esdoc-inject-style-plugin": "1.0.0",
+    "esdoc-standard-plugin": "1.0.0",
+    "fixpack": "4.0.0",
+    "husky": "6.0.0",
+    "lint-staged": "10.5.4",
+    "microbundle": "0.13.0",
+    "np": "7.4.0",
+    "pinst": "2.1.6",
+    "power-assert": "1.6.1"
   },
   "files": [
     "dist"
   ],
+  "homepage": "https://aureooms.github.io/js-nlp",
+  "keywords": [
+    "algorithm",
+    "complexity",
+    "javascript",
+    "js",
+    "language",
+    "natural",
+    "nlp",
+    "processing"
+  ],
+  "license": "AGPL-3.0",
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aureooms/js-nlp.git"
+  },
+  "scripts": {
+    "build": "NODE_ENV=production microbundle",
+    "cover": "c8 --all --src src --reporter=lcov npm test",
+    "dev": "npm run lint-config-and-fix && npm run lint-and-fix && npm run cover -- -- -st --fail-fast",
+    "esdoc": null,
+    "lint": "true",
+    "prepare": "npm run build",
+    "release": "np --message ':hatching_chick: release: Bumping to v%s.'",
+    "test": "ava",
+    "travis": null
+  },
   "sideEffects": false
 }
