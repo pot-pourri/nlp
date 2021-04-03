@@ -11,7 +11,7 @@
  * the string are equivalent.
  */
 
-var natural = function ( a, b ) {
+export function natural ( a, b ) {
 
 	var i, j, k, d, ai, bi, ak, bk, aj, bj, an, bn;
 
@@ -131,6 +131,5 @@ var natural = function ( a, b ) {
 
 	return an - bn;
 
-};
+}
 
-exports.natural = natural;

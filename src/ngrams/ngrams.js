@@ -1,6 +1,6 @@
 
 
-var ngrams = function ( n, tokens, out ) {
+export function ngrams ( n, tokens, out ) {
 
 	var i, j, len, gram;
 
@@ -20,6 +20,5 @@ var ngrams = function ( n, tokens, out ) {
 
 	return out;
 
-};
+}
 
-exports.ngrams = ngrams;

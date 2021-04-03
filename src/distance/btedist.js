@@ -1,7 +1,7 @@
 
 
 
-var btedist_t = function(kx, ky, kz) {
+export function btedist_t(kx, ky, kz) {
 
 	var btedist = function(a, ai, aj, b, bi, bj, d, di, dj, p, pi) {
 
@@ -51,7 +51,6 @@ var btedist_t = function(kx, ky, kz) {
 
 	return btedist;
 
-};
+}
 
 
-exports.btedist_t = btedist_t;

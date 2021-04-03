@@ -52,7 +52,7 @@
    should be done before stem(...) is called.
 */
 
-var porter = function ( p , pi , pj ) {
+export function porter ( p , pi , pj ) {
 
 // buffer for word to be stemmed
 var b ;
@@ -64,13 +64,13 @@ var k , k0 , j ;
 /**
  * cons(i) is true <=> b[i] is a consonant.
  */
-var cons = function ( i ) {
+export function cons ( i ) {
 	switch ( b[i] ) {
 		case 'a' : case 'e' : case 'i' : case 'o' : case 'u' : return false ;
 		case 'y' : return ( i === k0 ) ? true : !cons( i - 1 ) ;
 		default : return true ;
 	}
-} ;
+}
 
 /**
  * m() measures the number of consonant sequences between k0 and j. if c is
@@ -84,7 +84,7 @@ var cons = function ( i ) {
  *     ....
  */
 
-var m = function ( ) {
+export function m ( ) {
 
 	var i , n ;
 
@@ -113,24 +113,24 @@ var m = function ( ) {
       }
       i++;
    }
-} ;
+}
 
 /**
  * vowelinstem() is true <=> k0,...j contains a vowel
  */
-var vowelinstem = function ()
+export function vowelinstem ()
 {  var i; for (i = k0; i <= j; i++) if (! cons(i)) return true;
    return false;
-} ;
+}
 
 /**
  * doublec(j) is true <=> j,(j-1) contain a double consonant.
  */
-var doublec = function ( j ) {
+export function doublec ( j ) {
 	if (j < k0+1) return false;
    if (b[j] != b[j-1]) return false;
    return cons(j);
-} ;
+}
 
 /**
  * cvc(i) is true <=> i-2,i-1,i has the form consonant - vowel - consonant
@@ -141,18 +141,18 @@ var doublec = function ( j ) {
  *     snow, box, tray.
  *
  */
-var cvc = function ( i )
+export function cvc ( i )
 {  if (i < k0+2 || !cons(i) || cons(i-1) || !cons(i-2)) return false;
    {  var ch = b[i];
       if (ch == 'w' || ch == 'x' || ch == 'y') return false;
    }
    return true;
-};
+}
 
 /**
  * memcmp in JavaScript
  */
-var memcmp = function ( a , ai , aj , b , bi ) {
+export function memcmp ( a , ai , aj , b , bi ) {
 
 	for ( ; ai < aj ; ++ai , ++bi ) {
 		if ( a[ai] === b[bi] ) continue ;
@@ -161,20 +161,20 @@ var memcmp = function ( a , ai , aj , b , bi ) {
 
 	return 0 ;
 
-} ;
+}
 
 /**
  * ends(s) is true <=> k0,...k ends with the string s.
  */
 
-var ends = function ( s ) {
+export function ends ( s ) {
 	var len = s.length ;
 	if ( s[len - 1] !== b[k] ) return false ; /* tiny speed-up */
 	if ( len > k - k0 + 1 ) return false ;
 	if ( memcmp( b , k - len + 1 , k + 1 , s , 0 ) !== 0 ) return false ;
 	j = k - len ;
 	return true ;
-} ;
+}
 
 /**
  * memmove in JavaScript. ( not exactly because it would require to copy
@@ -182,31 +182,31 @@ var ends = function ( s ) {
  * that in our use case )
  */
 
-var memmove = function ( a , ai , aj , b , bi ) {
+export function memmove ( a , ai , aj , b , bi ) {
 
 	for ( ; ai < aj ; ++ai , ++bi ) {
 		b[bi] = a[ai] ;
 	}
 
-} ;
+}
 
 /**
  * setto(s) sets (j+1),...k to the characters in the string s, readjusting k.
  */
 
-var setto = function ( s ) {
+export function setto ( s ) {
 	var len = s.length ;
 	memmove( s , 0 , len , b , j + 1 ) ;
 	k = j + len ;
-} ;
+}
 
 /**
  * r(s) is used further down.
  */
 
-var r = function ( s ) {
+export function r ( s ) {
 	if ( m( ) > 0 ) setto( s ) ;
-} ;
+}
 
 /**
  * step1ab() gets rid of plurals and -ed or -ing. e.g.
@@ -231,7 +231,7 @@ var r = function ( s ) {
  *
  */
 
-var step1ab = function ( ) {
+export function step1ab ( ) {
 	var ch ;
 	if (b[k] == 's')
 	{  if (ends( "sses")) k -= 2; else
@@ -252,16 +252,16 @@ var step1ab = function ( ) {
 	  }
 	  else if (m() == 1 && cvc(k)) setto( "e");
 	}
-} ;
+}
 
 
 /**
  * step1c() turns terminal y to i when there is another vowel in the stem.
  */
 
-var step1c = function ( ) {
+export function step1c ( ) {
 	if (ends("y") && vowelinstem()) b[k] = 'i';
-} ;
+}
 
 
 /**
@@ -270,7 +270,7 @@ var step1c = function ( ) {
  * m() > 0.
  */
 
-var step2 = function ( ) {
+export function step2 ( ) {
 	switch (b[k-1]) {
 
 		case 'a': if (ends( "ational")) { r( "ate"); break; }
@@ -310,13 +310,13 @@ var step2 = function ( ) {
 
 	}
 
-} ;
+}
 
 /**
  * step3() deals with -ic-, -full, -ness etc. similar strategy to step2.
  */
 
-var step3 = function ( ) { switch (b[k])
+export function step3 ( ) { switch (b[k])
 {
     case 'e': if (ends( "icate")) { r( "ic"); break; }
               if (ends( "ative")) { r( ""); break; }
@@ -335,7 +335,7 @@ var step3 = function ( ) { switch (b[k])
  * step4() takes off -ant, -ence etc., in context <c>vcvc<v>.
  */
 
-var step4 = function ()
+export function step4 ()
 {  switch (b[k-1])
     {  case 'a': if (ends( "al")) break; return;
        case 'c': if (ends( "ance")) break;
@@ -360,20 +360,20 @@ var step4 = function ()
        default: return;
     }
     if (m() > 1) k = j;
-} ;
+}
 
 /**
  * step5() removes a final -e if m() > 1, and changes -ll to -l if m() > 1.
  */
 
-var step5 = function ()
+export function step5 ()
 {  j = k;
    if (b[k] == 'e')
    {  var a = m();
       if (a > 1 || a == 1 && !cvc(k-1)) k--;
    }
    if (b[k] == 'l' && doublec(k) && m() > 1) k--;
-};
+}
 
 /**
  * In stem(p,i,j), p is a char pointer, and the string to be stemmed is from
@@ -385,7 +385,7 @@ var step5 = function ()
  * file.
  */
 
-var stem = function ( p , i , j )
+export function stem ( p , i , j )
 {  b = p; k = j; k0 = i; /* copy the parameters into statics */
    if (k <= k0+1) return k; /*-DEPARTURE-*/
 
@@ -399,10 +399,9 @@ var stem = function ( p , i , j )
        step1c(); step2(); step3(); step4(); step5();
    }
    return k;
-} ;
+}
 
 	return stem( p , pi , pj - 1 ) ;
 
-} ;
+}
 
-exports.porter = porter ;

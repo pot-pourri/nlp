@@ -1,5 +1,5 @@
 
-var find = function (s, si, sj, p, pi, pj, cb) {
+export function find (s, si, sj, p, pi, pj, cb) {
 
 	var m, j;
 
@@ -17,6 +17,5 @@ var find = function (s, si, sj, p, pi, pj, cb) {
 
 	}
 
-};
+}
 
-exports.find = find;

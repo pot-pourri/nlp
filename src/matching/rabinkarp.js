@@ -7,7 +7,7 @@
  *
  */
 
-var __rabinkarp__ = function (code, d, q) {
+export function __rabinkarp__ (code, d, q) {
 
 	var rkmatch = function (sh, ph, m, s, si, p, pi) {
 
@@ -78,6 +78,5 @@ var __rabinkarp__ = function (code, d, q) {
 
 	return rabinkarp;
 
-};
+}
 
-exports.__rabinkarp__ = __rabinkarp__;

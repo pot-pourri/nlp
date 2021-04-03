@@ -1,6 +1,6 @@
 
 
-var edist_t = function(kx, ky, kz) {
+export function edist_t(kx, ky, kz) {
 
 	var edist = function(a, ai, aj, b, bi, bj, d, di, dj){
 		var i, j, m, n, x, y, z;
@@ -30,7 +30,6 @@ var edist_t = function(kx, ky, kz) {
 
 	return edist;
 
-};
+}
 
 
-exports.edist_t = edist_t;
