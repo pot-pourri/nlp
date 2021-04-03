@@ -1,5 +1,7 @@
+import test from 'ava';
+import * as nlp from '../../src';
 
-var util = require("util");
+import util from "util" ;
 
 var format = util.format;
 
@@ -44,23 +46,23 @@ var _one = function (fn, name, s, p, hit) {
 		// console.log(name, s, p, seq, i, j);
 
 		if (k < hit.length) {
-			deepEqual(seq, s, format("%s > sequence", name));
-			deepEqual(i, hit[k], format("%s > begin of '%s' in '%s'", name, p, s));
-			deepEqual(j, i + p.length, format("%s > end of '%s' in '%s'", name, p, s));
+			t.deepEqual(seq, s, format("%s > sequence", name));
+			t.deepEqual(i, hit[k], format("%s > begin of '%s' in '%s'", name, p, s));
+			t.deepEqual(j, i + p.length, format("%s > end of '%s' in '%s'", name, p, s));
 			++k;
 		}
 		else {
 			++k;
-			ok(false, format("%s > ('%s', %d, %d) callback called %d times for '%s' in '%s'", name, seq, i, j, k, p, s));
+			t.truthy(false, format("%s > ('%s', %d, %d) callback called %d times for '%s' in '%s'", name, seq, i, j, k, p, s));
 		}
 	};
 
 	fn(s, si, sj, p, pi, pj, cb);
 
-	deepEqual(k, hit.length, format("%s > check number of hits for '%s' in '%s'", name, p, s));
+	t.deepEqual(k, hit.length, format("%s > check number of hits for '%s' in '%s'", name, p, s));
 
 };
 
-test("matching", function () {
+test( "matching", t => {
 	tests.forEach(one);
 });

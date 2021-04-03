@@ -1,6 +1,8 @@
+import test from 'ava';
+import * as nlp from '../../src';
 
 
-test('btedist', function(){
+test( 'btedist', t => {
 
 	var check = function (model, a, b) {
 
@@ -37,7 +39,7 @@ test('btedist', function(){
 			}
 
 
-			deepEqual(actual, expected, 'distance check');
+			t.deepEqual(actual, expected, 'distance check');
 		}
 
 

@@ -1,6 +1,8 @@
+import test from 'ava';
+import * as nlp from '../../src';
 
 
-test('edist', function(){
+test( 'edist', t => {
 
 	var check = function (model, a, b, diff) {
 
@@ -23,7 +25,7 @@ test('edist', function(){
 
 		actual = d[m][n];
 
-		deepEqual(actual, expected, 'distance check');
+		t.deepEqual(actual, expected, 'distance check');
 
 	};
 

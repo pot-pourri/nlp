@@ -1,13 +1,14 @@
+import test from 'ava';
+import * as nlp from '../../src';
 
-var one;
 
-one = function ( n, tokens, expected ) {
+function one ( n, tokens, expected ) {
 
-	deepEqual( nlp.ngrams( n, tokens, [] ), expected, JSON.stringify( n, tokens ) );
+	t.deepEqual( nlp.ngrams( n, tokens, [] ), expected, JSON.stringify( n, tokens ) );
 
 };
 
-test( "ngrams", function () {
+test( "ngrams", t => {
 
 	one( 1, "abcde", [ ['a'], ['b'], ['c'], ['d'], ['e'] ] );
 	one( 2, "abcde", [ ['a', 'b'], ['b', 'c'], ['c', 'd'], ['d', 'e'] ] );

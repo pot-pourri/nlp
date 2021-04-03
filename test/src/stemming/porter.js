@@ -1,3 +1,5 @@
+import test from 'ava';
+import * as nlp from '../../../src';
 
 var t = function ( source , expected ) {
 
@@ -11,11 +13,11 @@ var t = function ( source , expected ) {
 
 	output = p.slice( pi , oj ).join( "" ) ;
 
-	deepEqual( output , expected , source ) ;
+	t.deepEqual( output , expected , source ) ;
 
 } ;
 
-test( "Porter stemmer" , function ( ) {
+test( "Porter stemmer" , t => {
 
 	t( "ion"       , "ion" ) ;
 
@@ -45,7 +47,7 @@ test( "Porter stemmer" , function ( ) {
 	t( "fossilization" , "fossil" ) ;
 	t( "civilization" , "civil" ) ;
 
-	reference = require( "../../data/stemming/porter/reference.js" ) ;
+import reference from "../../data/stemming/porter/reference.js" ;
 
 	reference.pairs.forEach( t.apply.bind( t , null ) ) ;
 
