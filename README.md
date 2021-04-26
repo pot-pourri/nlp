@@ -1,4 +1,4 @@
-[@aureooms/js-nlp](https://aureooms.github.io/js-nlp)
+[@aureooms/js-nlp](https://make-github-pseudonymous-again.github.io/js-nlp)
 ====
 [![License](https://img.shields.io/github/license/aureooms/js-nlp.svg)](https://raw.githubusercontent.com/aureooms/js-nlp/main/LICENSE)
 [![Version](https://img.shields.io/npm/v/@aureooms/js-nlp.svg)](https://www.npmjs.org/package/@aureooms/js-nlp)
@@ -12,5 +12,5 @@
 [![Code maintainability](https://img.shields.io/codeclimate/maintainability/aureooms/js-nlp.svg)](https://codeclimate.com/github/aureooms/js-nlp/trends/churn)
 [![Code coverage (cov)](https://img.shields.io/codecov/c/gh/aureooms/js-nlp/main.svg)](https://codecov.io/gh/aureooms/js-nlp)
 [![Code technical debt](https://img.shields.io/codeclimate/tech-debt/aureooms/js-nlp.svg)](https://codeclimate.com/github/aureooms/js-nlp/trends/technical_debt)
-[![Documentation](https://aureooms.github.io/js-nlp/badge.svg)](https://aureooms.github.io/js-nlp/source.html)
+[![Documentation](https://make-github-pseudonymous-again.github.io/js-nlp/badge.svg)](https://make-github-pseudonymous-again.github.io/js-nlp/source.html)
 [![Package size](https://img.shields.io/bundlephobia/minzip/@aureooms/js-nlp)](https://bundlephobia.com/result?p=@aureooms/js-nlp)
