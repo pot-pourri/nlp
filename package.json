@@ -96,7 +96,7 @@
     }
   },
   "bugs": {
-    "url": "https://github.com/aureooms/js-nlp/issues"
+    "url": "https://github.com/make-github-pseudonymous-again/js-nlp/issues"
   },
   "dependencies": {},
   "devDependencies": {
@@ -141,7 +141,7 @@
   "main": "dist/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/aureooms/js-nlp.git"
+    "url": "https://github.com/make-github-pseudonymous-again/js-nlp.git"
   },
   "scripts": {
     "build": "NODE_ENV=production microbundle",
